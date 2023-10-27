@@ -1,0 +1,123 @@
+---
+layout: post
+title:  "我写了一个vscode插件: 快速search/jump到一个行代码"
+date:   2023-10-27 12:28:00 -0400
+categories: vscode extension plugin emacs
+---
+
+**问题**:
+ - vscode built-in quicksearch, NO GOOD. 它只支持exact match.  
+ - 我怀念emacs里 IVY, HELM的search方式. 详见下.  
+
+**解决**:
+我写了一个vscode插件 [swiper](https://marketplace.visualstudio.com/items?itemName=wenhoujx.swiper) supports regex, negate, match highting, case sensitive search.
+
+
+## 干货 上图
+
+
+![swiper-gif](/assets/images/swiper-silver.gif)
+
+指令 `Swiper: Swiper Search/Resume` 然后type 想搜的words
+
+## 支持的功能
+
+- 搜exact match 比如 "abc" or javascript regex /abc/. 支持javascript regex. 
+- 搜 foo AND bar: strings separated by space are AND-ed together. e.g. "a b" matched lines with "a" and "b" on the same line.
+  - default "foo bar" 是 and的关系, 所以省略`and` 也没事. 
+- 排除搜 如果不想match到一个`string`: string prefixed with ! negates the search, "a !b" matches lines with "a" but not "b". Use regex /\!/ if you want to match "!" literal string. Search string starts with ! does not contribute to the border highlights.
+- Default case insensitive search. Upcased search term matches case sensitively.
+
+### examples
+
+```sh
+# search wildcard
+/command.*swiper/
+
+a b matches lines with a and b
+a !b # matches lines with a but not b
+
+/lint|display/ # lint OR display
+lint|display # searches the literal string "lint|display"
+
+# line starts with test
+/^test/
+
+a B # matches "aB", "AB"
+
+/\(.*\)/ # matches paren
+!/\(.*\)/ # do not match paren
+
+```
+
+
+### 代码解释
+
+[github代码](https://github.com/wenhoujx/swiper/blob/main/extension.js#L232)
+
+注册支持的`command` 以及他们的 `function`. 注意这里的`command` 要对应 `package.json`中declared的`command`
+
+```js
+function activate(context) {
+	context.subscriptions.push(
+		vscode.commands.registerCommand('swiper.swiper', () => swipe()));
+	context.subscriptions.push(
+		vscode.commands.registerCommand('swiper.swiper-word-at-cursor', () =>
+			swipeWordAtCursor()
+		));
+}
+
+function deactivate() { }
+
+module.exports = {
+	activate,
+	deactivate
+}
+```
+
+这里可以看到最重要的`function` 是`swipe()`, 这个function 利用了vscode的 `quickpick` widget的api. 
+
+```js
+function swipe() {
+  ... 
+	const pick = vscode.window.createQuickPick()
+
+	pick.onDidChangeValue((value) => {
+		_search(value, pick) # 如果prompt value change, 重新搜索. 
+	})
+	pick.onDidAccept(() => { # 如果用户选择了一个candidate, 
+		const selected = _firstOrNull(pick.selectedItems)
+		isDebug && console.log(`selected: ${JSON.stringify(selected)}`)
+		if (!selected) {
+			return
+		}
+		state = { #  记住这个选择, 用户later可以重新回到这个state 2
+			lastValue: pick.value,
+			lastSelected: selected
+		}
+		pick.hide(); # 关闭quickpick 并且跳转到选择的行.
+		_jumpTo(state.lastSelected) 
+	});
+	pick.onDidChangeActive(items => { # 如果用户在quickpick中移动到下一个candidate, window需要移动到该candidate对应的行数
+		const focused = _firstOrNull(items)
+		if (!focused) {
+			return
+		}
+		_focusOnActiveItem(focused)
+	})
+	pick.onDidHide(() => { # 一些收尾 cleanup
+		// resort previous cursor position if nothing selected
+		_clearDecorations()
+		_resortCursorIfNoneSelected(pick, currentSelection)
+	})
+	pick.show()
+}
+```
+
+
+主要的匹配功能是在自定义的`_search` function中, 它会根据用户输入的prompt逐行匹配(match) 找到所有合格的candidates. 这样我们就取代了原来quickpick的匹配功能. [具体代码](https://github.com/wenhoujx/swiper/blob/main/extension.js#L142)
+
+
+## 最后
+欢迎安装使用 并且给我意见. 
+
