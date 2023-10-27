@@ -16,13 +16,13 @@ categories: vscode task
 **解决**: vscode custom task
 
 
-## 干货
+## 上图
 
-vscode 本身自带简单的自定义task功能, 如下图: 
+vscode 本身自带简单的自定义task功能, 如下图, 按`F1` -> `Tasks: run task` -> 选择自己定义的task 
 
 ![vscode-run-task](/assets/images/vscode-run-custom-tasks.gif)
 
-按`F1` -> `Tasks: run task` -> 选择自己定义的task
+
 
 ### 如何自定义task
 
