@@ -23,6 +23,8 @@ email: wenhoujx@gmail.com
 author:
   name: Wenshuai Hou
   email: wenhoujx@gmail.com
+issues_repo: wenhoujx/wenhoujx.github.io
+
 # description: >- # this means to ignore newlines until "baseurl:"
 #   small fish coder
 baseurl: "" # the subpath of your site, e.g. /blog
