@@ -6,7 +6,16 @@ categories: cloud cron
 ---
 Situation: I want a text msg notification when tickets become available again. 
 
-Often the website doesn't have this feature, I need a cron running on remote sever that sends me notifications when conditions are met. 
+Often the website doesn't have this feature, I need a cron running on remote sever that sends me notifications when conditions are met.
+
+## Overall
+
+I need two components 
+
+1. get a cheap server 
+   - remote server to make sure it run 24/7.
+   - user `crontab` to schedule tasks.  
+2. if conditions are met, send text msg via `twilio`. 
 
 ## Cron Server
 
