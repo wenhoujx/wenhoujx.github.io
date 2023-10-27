@@ -1,23 +1,26 @@
 ---
 layout: post
-title:  "抢票用的云端的cron server"
-date:   2023-10-26 23:51:45 -0400
-categories: cloud cron 
+title:  "vscode提高效率, 自定义task"
+date:   2023-10-26 14:57:00 -0400
+categories: vscode task 
 ---
 
-**问题**: 我想要短信提醒我网上抢票有票了. 
+**问题**
 
-**解决**: 搞一个云端的cron server, 每5分钟 check 有没有放票, 如果有, 给我发短信.
+用vscode的时候有需要一些自定义功能, 但是又不想找插件 装插件
+
+例如想要去除trailing whitespace. 
+
+例如想要直接跳转当前repo的github.  
+
+**解决**: vscode custom task
 
 
 ## 干货
 
-需要两个components
+vscode 本身自带简单的自定义task功能, 如下图: 
 
-1. 一个便宜的云端的server 
-   - 这样可以保证24小时不间断的check 有没有票
-   - 在server上用`crontab` schedule tasks
-2. 如果有票了, 给我发短信, 这里用到了`twilio`
+![vscode-run-task](/assets/images/vscode-run-custom-tasks.gif)
 
 ## Cron Server
 
