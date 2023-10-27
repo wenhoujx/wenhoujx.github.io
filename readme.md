@@ -2,10 +2,15 @@
 
 ## publish 
 
-from `docs/` folder
+Publish from `docs/` folder
+
 ``` sh
 cd docs 
-bundle install 
+bundle install
+# local testing 
+bundle exec jekyll serve
 ```
+
+go to http://localhost:4000
 
 `

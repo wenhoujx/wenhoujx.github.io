@@ -1,18 +1,23 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I am Wenshuai Hou
+I studied computer science at [UMD](https://ece.umd.edu/)
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I now live a small startup life in which I am managing a ton of complexities. 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Mainly a backend dev, I touched a lot of things: 
+- Team Lead.
+- BE Stuff: Java, Python
+- Modern Data Stack Tech.
+- Databases. SQL & NoSql. 
+- Search Engines
+- CICD, Deployment Management. 
+- open source, [VScode Swiper](https://marketplace.visualstudio.com/items?itemName=wenhoujx.swiper)
 
+You can find my github: [github.com/wenhoujx](https://github.com/wenhoujx)
 
-[jekyll-organization]: https://github.com/jekyll
+You can find my resume: [resume](https://docs.google.com/document/d/0BziYuN0qsb0bdE5sNHlCby1LMHc/edit?usp=sharing&ouid=108984271688319740290&resourcekey=0-ylJiwsWt-clPYkL9zb9NIA&rtpof=true&sd=true)
