@@ -5,6 +5,7 @@ permalink: /about/
 ---
 
 I am Wenshuai Hou
+
 I studied computer science at [UMD](https://ece.umd.edu/)
 
 I now live a small startup life in which I am managing a ton of complexities. 
