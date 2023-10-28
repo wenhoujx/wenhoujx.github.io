@@ -95,3 +95,6 @@ push到github之后, render会自动deploy(部署)
 
 然后我们去`logs`中看到我们的secret被打印出来了.
 ![render-secret-logs-2](/assets/images/render-secret-logs-2.jpg)
+
+## 最后
+`render`只是继 `heroku` 被`salesforce` 阉割之后新生的一个比较好用的`PaaS`产品. 以后还会介绍 `fly.io` 和其他便宜又好用, 适合独立开发者的产品. 甚至会聊到 `kubernetes`. 
