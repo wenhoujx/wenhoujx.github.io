@@ -1,6 +1,8 @@
-# wenhoujx.github.io page 
+# welcome to my page
 
-## publish 
+This repo hosts my personal github pages: [wenhoujx.github.io](https://wenhoujx.github.io/)
+
+## publish
 
 Publish from `docs/` folder
 
@@ -11,6 +13,6 @@ bundle install
 bundle exec jekyll serve
 ```
 
-go to http://localhost:4000
+go to <http://localhost:4000>
 
 `

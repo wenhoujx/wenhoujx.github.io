@@ -12,7 +12,7 @@ layout: default
           {{ page.date | date: date_format }}
         </time>
       </div>
-      
+
       <div>
         {%- assign hits_key = "https://hits.sh/github.com/wenhoujx/wenhoujx.github.io/blob/main/docs/" | append: page.path -%}
         <a href="{{ hits_key }}"><img alt="Hits" src="{{ hits_key | append: ".svg"}}"/></a>
