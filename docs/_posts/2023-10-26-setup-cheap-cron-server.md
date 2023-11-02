@@ -2,7 +2,7 @@
 layout: post
 title:  "抢票用的云端的cron server"
 date:   2023-10-26 23:51:45 -0400
-categories: cloud cron 
+categories: cloud cron tickets
 ---
 
 **问题**: 我想要短信提醒我网上抢票有票了.

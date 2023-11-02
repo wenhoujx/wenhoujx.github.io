@@ -2,7 +2,7 @@
 layout: post
 title:  "用Render Paas 快速部署python的 cron job"
 date:   2023-10-28 13:00:00 -0400
-categories: cron render
+categories: cron render python
 published: true
 ---
 

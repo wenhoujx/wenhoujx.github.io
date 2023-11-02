@@ -2,7 +2,7 @@
 layout: post
 title:  "vscode提高效率, 自定义task"
 date:   2023-10-27 14:57:00 -0400
-categories: vscode task 
+categories: vscode task productivity
 ---
 
 **问题**

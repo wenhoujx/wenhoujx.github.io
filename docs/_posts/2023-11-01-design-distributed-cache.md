@@ -2,7 +2,7 @@
 layout: post
 title:  "如何设计一个distributed cache"
 date:   2023-11-01 15:43:00 -0400
-categories: distributed cache system design
+categories: distributed-cache system-design cap
 published: true
 ---
 
@@ -12,7 +12,7 @@ published: true
 
 ## 先问需求
 
-第一步总是要问一些问题, 确定需求. 虽然这些需求并不能帮啥忙.
+第一步总是要问一些问题, 确定需求. 虽然这些需求并不能帮啥忙. :sob:
 
 既然是distributed, 那就问问:
 
@@ -115,7 +115,7 @@ replicas 涉及一个availability 的问题, 如果算上leader 总共有 n 个r
 4. client可以随便query一个cache server, 然后这个server会自动route这个request到正确的server.
    1. 这也需要每一个server知道当前live的server, 所以需要zookeeper
 
-## 最后
+## 最后 :tada:
 
 和interviewer可以扩展的问题.
 

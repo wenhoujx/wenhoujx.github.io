@@ -2,7 +2,7 @@
 layout: post
 title:  "我写了一个vscode插件: 快速search/jump到一个行代码"
 date:   2023-10-27 12:28:00 -0400
-categories: vscode extension plugin emacs
+categories: vscode extension plugin emacs productivity
 published: true
 
 ---
