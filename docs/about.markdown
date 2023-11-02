@@ -12,7 +12,7 @@ I wrote my first program, a calculator, using VBA in elementary school. Knowing 
 
 I worked as IC and product lead at [Palantir](https://www.palantir.com/) since 2015 - 2022.
 
-I now live a small startup [Claritype](https://www.claritype.com/) life, I do so many things that I joke about being the plumber of the company (I don't do plumbing though).
+2022 - now, I live a small startup [Claritype](https://www.claritype.com/) life, I do so many things that I joke about being the plumber of the company (I don't do plumbing though).
 
 ## Skills
 
