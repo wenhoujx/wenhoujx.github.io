@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "union find以及其应用"
+title:  "用union find给元素快速分组"
 date:   2023-11-06 12:28:00 -0400
 categories: algo data-structure union-find
 published: true
@@ -14,24 +14,29 @@ published: true
 
 ## 举例
 
-如果有一堆东西, 我们用[1,2,3,4,5]来代表. 我们需要给他们分组, 比如[1,3,4] 一组, [2,5]一组. 这时候我们需要一个data structure来存储这种grouping.
+如果有一堆东西, 我们用`[1,2,3,4,5]`来代表. 我们iterate through的同时要根据某些条件给他们分组, 如`[1,3,4]` 一组, `[2,5]`一组. 这时候我们需要一个data structure来存储这种grouping.
+
+**具体的例子**:
+比如
 
 ## union-find
 
-union-find 是一个data structure, 有两个主要的API:
+`union-find` 是一个data structure, 有两个主要的API:
 
 ```python
 union(a,b) # 把a,b放在同一个group里
 find(a) # 找到a所在的group
 ```
 
+其中 `find` 也有把元素`a`加入data structure的作用.
+
 这个data-structure的要点是
 
-- 在每一个组中选择一个 root 爸爸, 这个爸爸element就是`find` return的值.
+- 在每一个组中选择一个 `root` 爸爸, 这个爸爸element就是`find` return的值.
 - 同一个group中的元素形成一个`tree`, 这个tree最上面的元素root就是这个爸爸.
-- root爸爸可以有1-n个孩子, 每个孩子也可以有他们自己的孩子. 如果我们call `find` on 任何一个group里的元素, 都会返回root爸爸.
+- `root` 爸爸可以有1-n个孩子, 每个孩子也可以有他们自己的孩子. 如果我们call `find` on 任何一个group里的元素, 都会返回root爸爸.
 
-比如以上的例子, [1,3,4] 的爸爸可以是1, 也可以是3, 也可以是4. 但是只能是一个. 这和具体的implementation 和insert order有关系.
+比如以上的例子, `[1,3,4]` 的爸爸可以是1, 也可以是3, 也可以是4. 但是只能是一个. 这和具体的implementation 和insert order有关系.
 
 比如我们选择了 1 是爸爸, 这时这个`tree`的一个可能的样子是 (其实没有left, right孩子的区分)
 
@@ -58,6 +63,7 @@ class UnionFind():
         self.par = {} # 这个dict 从孩子指向爸爸
 
     def find(self, el): 
+      # find root 爸爸, 同时也有把元素加入到这个data structure的作用
         p = self.par.get(el) 
         if p is None :  # 如果是一个新元素, 那么他就是自己的爸爸, 他自成一派
             self.par[el] = el 
@@ -65,7 +71,7 @@ class UnionFind():
         elif el == self.par.get(el): # 如果自己是自己的爸爸, 那他就是root
             return el 
         else: 
-            return self.find(self.par[el]) # 如果有爸爸, 那就找到他爸爸的可能的爸爸.
+            return self.find(p) # 如果有爸爸, 那就找到他爸爸的可能的爸爸.
 
     def union(self, a,b): 
         # 这里a,b可以互换位置, 重要的是把一个root爸爸变成另一个root爸爸的孩子
