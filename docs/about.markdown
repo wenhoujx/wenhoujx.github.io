@@ -29,7 +29,7 @@ Mainly a backend dev, I touched a lot of things:
 - My favorite editor is [EMACS](https://www.gnu.org/software/emacs/).
 - I wrote a few website with [svelte](https://svelte.dev/), [vite](https://vitejs.dev/), [bootstrap](https://getbootstrap.com/docs/3.4/css/), [google firebase](https://firebase.google.com/) and [vercel](https://vercel.com/dashboard).  
 
-## External links
+## Links
 
 - my [github](https://github.com/wenhoujx)
 - my [resume](https://docs.google.com/document/d/0BziYuN0qsb0bdE5sNHlCby1LMHc/edit?usp=sharing&ouid=108984271688319740290&resourcekey=0-ylJiwsWt-clPYkL9zb9NIA&rtpof=true&sd=true)
