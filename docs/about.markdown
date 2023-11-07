@@ -27,7 +27,7 @@ Mainly a backend dev, I touched a lot of things:
 - Streaming: [Kafka](https://aws.amazon.com/marketplace/pp/prodview-g5ujul6iovvcy?trk=5fb439e2-6e7a-4556-b09d-76d40d166f1a&sc_channel=ps&ef_id=CjwKCAjw7oeqBhBwEiwALyHLM21s2Xtti168dYsrxw9XGfVoUCiVqwExN1Ikea-FKOr2eB16YGOibBoCEewQAvD_BwE:G:s&s_kwcid=AL!4422!3!670989965686!e!!g!!apache%20kafka!20487015569!153770587098), [Flink](https://aws.amazon.com/marketplace/pp/prodview-g5ujul6iovvcy?trk=5fb439e2-6e7a-4556-b09d-76d40d166f1a&sc_channel=ps&ef_id=CjwKCAjw7oeqBhBwEiwALyHLM21s2Xtti168dYsrxw9XGfVoUCiVqwExN1Ikea-FKOr2eB16YGOibBoCEewQAvD_BwE:G:s&s_kwcid=AL!4422!3!670989965686!e!!g!!apache%20kafka!20487015569!153770587098).
 - Open source when I have time, [VScode Swiper](https://marketplace.visualstudio.com/items?itemName=wenhoujx.swiper)
 - My favorite editor is [EMACS](https://www.gnu.org/software/emacs/).
-- I wrote a few website with [svelte](https://svelte.dev/), [vite](https://vitejs.dev/), [bootstrap](https://getbootstrap.com/docs/3.4/css/), [google firebase](https://firebase.google.com/) and [vercel](https://vercel.com/dashboard).  
+- I wrote a few websites with [svelte](https://svelte.dev/), [vite](https://vitejs.dev/), [bootstrap](https://getbootstrap.com/docs/3.4/css/), [google firebase](https://firebase.google.com/) and [vercel](https://vercel.com/dashboard).  
 
 ## Links
 
