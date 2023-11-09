@@ -8,7 +8,7 @@ published: true
 
 **问题**:
 
-今天刷leetcode的时候需要一个 prime tester, 就随手问一下 `chargpt`, 结果答案惊艳到我了.
+今天刷leetcode的时候需要一个 prime tester, 就随手问一下 `chatGPT`, 结果答案惊艳到我了.
 
 ```python
 def is_prime(n):
