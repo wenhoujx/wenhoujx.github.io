@@ -2,7 +2,7 @@
 layout: post
 title:  "简单好写的快速质数prime test"
 date:   2023-11-08 19:36:00 -0400
-categories: chatgpt prime-number python
+categories: chatgpt prime-number python leetcode
 published: true
 ---
 
