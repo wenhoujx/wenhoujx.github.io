@@ -141,29 +141,36 @@ published: true
 
 对于每一个segment, 我们知道这个segment里面的所有道路的信息. 更重要的是 我们知道所有的exits, 即和其他segment相连的道路的信息.
 
-![segment-exits](/assets/images/within-a-segment.jpeg){:width="50%"}
+![segment-exits](/assets/images/within-a-segment.jpeg){:width="50%"}{:.centered}
 
 ### build a graph
 
 从 A B两点开始, 可以用BFS找到一片 segments 把这两个点相连. 如果B在A的东边, 那么我们还要包括A西边的N个segments 还有 B 东边的 N 个segments, 以防有一条更好的路在这些segments 里面.
 
-我们要找的路大概率就在这一片segments里面, 当然也会有漏网之鱼, 这和我们的 N configuration 的设定有关. N 越大, segments 越多, 漏网之鱼越少, 但是搜索的时间越长.
+![segments BFS](/assets/images/segments.jpg){:width="50%"}{:.centered}
+
+我们要找的路大概率就在这一片segments里面, 当然也会有漏网之鱼.
+
+- 这和我们的 N configuration 的设定有关. N 越大, segments 越多, 漏网之鱼越少, 但是搜索的时间越长.
+
+### 最佳路线
 
 我们可以用这一片segments来build一个graph:
 
-- 通过每一个segment 和邻居的segments的exits的相连, 我们得到了一个精简的graph.
+- 把每一个segment 和 ta相邻的segment的exits链接起来, 我们得到了一个精简的graph.
   - 这一步还排除了一些segment, 因为他们没有参与到最终的graph里面. e.g. 有一条河把一片segments分出去了.
 - 有了这个graph之后我们需要compute edge weights.
-  - 通过graph, 我们知道了对于一个segment, 哪些exits 参与了这个graph
+  - 通过graph, 我们知道对于一个segment, 哪些 pairs of exits 参与了这个graph
   - 对于这个同一个segment 的exits, 我们计算他们的weight.
     - 这里的weight 可以是distance, 可以是ETA, ECO score, 也可以是他们的combination.
-    - 如果这个segment很大, (比如我们要从纽约开去LA), 我们可以进一步把这个segment分成更小的segments, 然后用同样的方法计算exits的weight. 直到segment小到好计算为止.
-    - 越小的segment 计算起来越快, 因为routes的可能少.
+    - 如果这个segment很大, (比如我们要从纽约开去LA), 我们可以进一步把这个segment分成更小的segments, 然后用同样的方法计算exits的weight. 直到segment小到可以计算为止.
+    - 越小的segment 的可能的routes越少 计算起来越快
+    - 一个segment内的最优routes可以被cache起来, 方便以后得计算.
 - 有了graph 和 edge weights 之后我们就可以用shortest path, 来计算从A到B的最好的路线了.
 
 ### 优化: contraction hierarchies
 
-Precompute 一个segment 的 segment 的最优路线, 一般都是一些主要的highway. 这个优化的原理是公路是很hierarchical的, 一般都是主干道, 还有一些分支, 分支在很多时候都很难是最优的路线. 如果我们提前算了最优路线, 那么我们以后就可以直接用这些最优路线.
+Precompute 一个 segment exit to exit 内的最优路线, 一般都是一些主要的highway. 这个优化的原理是公路是很hierarchical的, 一般都是主干道, 还有一些分支, 分支在很多时候都很难是最优的路线. 如果我们提前算了最优路线, 那么我们以后就可以直接用这些最优路线.
 
 Precompute在一个segment内部从exit到另一个exit的最优路线.
 
@@ -181,14 +188,28 @@ Precompute在一个segment内部从exit到另一个exit的最优路线.
 
 这里也可以就算这些condition 造成的最优路线weight的变化, 只有在超过一定 threshold 的时候才会trigger 重新寻找其他最优的路线.
 
-## 放在一起, arch
+### 放在一起, 路线计算的arch
 
 把这些优化放在一起, 可以得到这样的arch:
 
 ![compute-route-arch](/assets/images/compute-route.jpg)
 
+## 总结
+
+实现了一下的功能:
+
+- 查看地图
+- 搜索附近的places
+- 导航
+- 实时用户位置跟踪, 以便于ML的使用.
+
+这个题目改一改可以适用于各种有map的面试 system design 题目:
+
+- design uber, lyft
+- design yelp
+
 ## links
 
 - [ETA Phone Home: How Uber Engineers an Efficient Route](https://www.uber.com/blog/engineering-routing-engine/)
-- [Contraction hierarchies](https://en.wikipedia.org/wiki/Contraction_hierarchies)
+- [wikipedia: Contraction hierarchies](https://en.wikipedia.org/wiki/Contraction_hierarchies)
 - [uber u3](https://www.uber.com/blog/h3/)
