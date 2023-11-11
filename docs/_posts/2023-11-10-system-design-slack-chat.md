@@ -121,7 +121,7 @@ send_message(workspace_id, channel_id, {
 - streaming indexer 读取kafka, 快速的index到 message db中.
 - 用户可以query slack server读取message, 或者query workspace, channel.
   - searchability 可以是db自己提供的也可以用elasticsearch 做一个secondary index.
-    - 要注意的一点: maintain这么大的es cluster是一件很耗费人力的事情, 最好还是用db自带的indexing来manage. 这样可以减少operational cost 和 training cost.
+    - 要注意的一点: maintain这么大的es cluster是一件很耗费人力的事情, 最好还是用db自带的indexing来manage search/query. 这样可以减少operational cost 和 training cost.
 
 ![slack-messenger](/assets/images/slack-messenger.jpg)
 
