@@ -169,7 +169,7 @@ message 一进来就会被queue到kafka里面, 我们可以deploy 一个job, rea
 ```json
 {
   "user_id": "123",
-  "notifications": ["message"]
+  "notifications": ["message_id", ...]
 }
 ```
 
