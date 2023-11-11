@@ -156,7 +156,7 @@ message 一进来就会被queue到kafka里面, 我们可以deploy 一个job, rea
 
 这时候我们可以选择把这个message 放在db中. 然后create index by user_id, read, 我们可以query用户未读的notification, 然后全部发给user, 如果user读了某一条, 我们可以`mark read == True`, 然后deploy 一个task删除已读已读的信息.
 
-如果每次有新的信息, 我们都issue 一个 count query, 这也是不efficient的, 我们可以用redis cache 当前一个用户的未读, 然后每次 +1 , deploy 一个task每隔一段时间就更新这个count以保证accurate.
+如果每次有新的信息, 我们都issue 一个 count query, 这也是不efficient的, 我们可以用redis cache 当前一个用户的未读, 然后每次 `INCR +1` , deploy 一个task每隔一段时间就更新这个count以保证accurate.
 
 具体系统设计如下:
 
