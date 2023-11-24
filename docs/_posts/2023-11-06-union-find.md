@@ -97,6 +97,7 @@ len(set(uf.find(el) for el in uf.par))
 ### leetcode 例子
 
 - [959. Regions Cut By Slashes](https://leetcode.com/problems/regions-cut-by-slashes/solutions/3032214/python-solution-union-find-with-4-regions/)
+- [1584. Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/)
 
 ## complexity
 
