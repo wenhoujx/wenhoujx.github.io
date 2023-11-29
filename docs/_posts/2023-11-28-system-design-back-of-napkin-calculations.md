@@ -39,6 +39,7 @@ published: true
 - 20-80 rule, 比如cache的size, 我们可以argue 在最近的一个小时中20%的data占用了80%的hit request. 所以cache的size是总的outbound bandwidth的20%.
 - 1million / 86400 = 11.5 这个计算很多时候可以用到, 比如有每天有1bil 的request, 那么就是11.5k request per second.
 - 既然是估算, 不需要精确, 9 可以约等于10. 注意数量级不要搞错就好了.
+- `2^10 == 1024 ~= 1000`, 所以估算8bytes能代表多少个数字的时候, 可以用`2^32 ~= 4 billion`来估算.
 
 ## 估算的例子
 
