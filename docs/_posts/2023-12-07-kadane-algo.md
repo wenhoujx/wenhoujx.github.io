@@ -87,8 +87,10 @@ def kadane_algorithm(arr):
 
 这时候最后`global_max` 就是以每一个index结尾的最大的subarray sum中的最大值.
 
+其实kadane algo 是这个DP的解法的一种优化, 因为我们只需要知道`dp[i-1]` 就行了, 所以我们可以用一个variable `max_current` 来记录这个值, 记录整个array.
+
 # 总结
 
 了解了这个algo的原理, 以后就不会忘记了. 同时也可以用这个思路去解决其他的问题.
 
-- 比如这道leetcode的[题目](https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/)
+- 比如这道leetcode的题目的[解法](https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/solutions/4376741/commented-kadane-solution/)
