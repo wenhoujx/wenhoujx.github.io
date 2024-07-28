@@ -1,4 +1,3 @@
-<!-- src/routes/Gomoku.svelte -->
 <script>
     import { onMount } from "svelte";
 
