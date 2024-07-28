@@ -1,4 +1,4 @@
-import{s as o,n as t}from"../chunks/scheduler.BvLojk_z.js";import{S as s,i as r,e as h,c,g as p,b as m,d as u,f as d}from"../chunks/index.B2G7tYEE.js";function g(n){let e,a=`<h1>About Me</h1> <section><h2>Experiences</h2> <p>I wrote my first program, a calculator, using VBA in elementary
+import{s as o,n as t}from"../chunks/scheduler.BvLojk_z.js";import{S as s,i as r,e as h,c,g as p,b as m,a as u,d}from"../chunks/index.D9ETV0Yf.js";function g(n){let e,a=`<h1>About Me</h1> <section><h2>Experiences</h2> <p>I wrote my first program, a calculator, using VBA in elementary
             school. Knowing USA is the best place to pursue a programming
             career, I came here 🇺🇸 and studied computer science at UMD.</p> <p>I have 12 year of programming, arch design experience on my belt.</p> <p>I worked as IC and product lead at Palantir since 2015 - 2022.</p> <p>2022 - now, I live a small startup Claritype life, I do so many
             things that I joke about being the plumber 🔧 of the company (I
