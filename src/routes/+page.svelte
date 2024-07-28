@@ -1,2 +1,14 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<main>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#"><strong>Home</strong></a></li>
+                <li><a href="/games">Games</a></li>
+            </ul>
+            <ul>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+        <h1>Welcome to my page!</h1>
+    </div>
+</main>
